@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        /* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7fc;
+    color: #333;
+    padding: 20px;
+}
+
+/* Heading Styles */
+h2 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+/* Form Container */
+form {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* Label Styles */
+label {
+    font-weight: bold;
+    color: #555;
+}
+
+/* Input Fields */
+input[type="file"] {
+    display: inline-block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Button Styles */
+button {
+    background-color: #3498db;
+    color: white;
+    padding: 12px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+/* Extracted Text */
+pre {
+    background-color: #e0e0e0;
+    padding: 15px;
+    border-radius: 5px;
+    font-family: monospace;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    max-width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* Small Screen Adjustments */
+@media (max-width: 600px) {
+    form {
+        padding: 15px;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+
+    button {
+        font-size: 14px;
+    }
+
+    input[type="file"] {
+        padding: 8px;
+    }
+}
+
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload File</title>
+</head>
+<body>
+    <h2>Upload a File</h2>
+    <form action="/upload/" method="post" enctype="multipart/form-data">
+        <label for="file">Select Editorial guide: </label><br><br>
+        <input type="file" name="file" id="file" required><br><br>
+
+        <label for="file">Select the main document :</label><br><br>
+        <input type="file" name="file1" id="file1" required><br><br>
+        <button type="submit">Upload</button>
+    </form>
+    {% if filename %}
+    <h3>Extracted Text from {{ filename }}</h3>
+    <pre>{{ text }}</pre>
+    {% endif %}
+</body>
+</html>
